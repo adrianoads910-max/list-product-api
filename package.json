@@ -1,0 +1,13 @@
+{
+  "name": "list-product-api",
+  "version": "1.0.0",
+  "description": "API Rest for products with auth",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Adriano",
+  "license": "MIT",
+  "packageManager": "pnpm@10.17.1"
+}
