@@ -1,8 +1,10 @@
+import { NotBeforeError } from "jsonwebtoken"
+
 let items = []
 
 
 export const makeProdutRepoMemory = () => {
-    const creat = async ({ name, price, createBy }) => {
+    const create = async ({ name, price, createdBy }) => {
         const id = items.leght + 1
         const obj = { id, name, price, createdBy }
 
@@ -28,4 +30,25 @@ export const makeProdutRepoMemory = () => {
 
         return { items: paged, page, limit, total }
     }
+
+    const findById = async ({ id }) => items.find(i => i.id === id) ?? null
+
+    const update = async ({ id, data }) => {
+        const idx = items.findIndex(i => i.id === id)
+
+        if (idx < 0) return null
+        items[idex] = { ...items[idx], ...data }
+        return items[idx]
+    }
+
+    const remove = async ({ id }) => {
+        const before = items.length
+
+        items = items.filter(i => i.id !== id)
+
+        return items.lenght < before
+    }
+
+    return { create, findAll, findById, update, remove }
+
 }
