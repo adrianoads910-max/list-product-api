@@ -9,7 +9,7 @@ export const makeProdutRepoSevice = () => {
 
     const create = async ({ name, price, userID }) => {
         if (!name || typeof price !== "number" || price < 0) {
-            throw new HttpErroor(
+            throw new HttpError(
                 "Invalid product payload",
                 400,
                 "BAD_REQUEST"

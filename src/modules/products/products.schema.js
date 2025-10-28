@@ -20,6 +20,6 @@ export const productIdParams = z.object({
 export const patchProductsSchema = z.object({
     name: z.string().min(1).optional(),
     price: z.number().nonnegative().optional()
-}).refine(obj =>
+}).partial().refine(obj =>
     Object.keys(obj).length > 0, { error: 'no fields to update' }
 )
