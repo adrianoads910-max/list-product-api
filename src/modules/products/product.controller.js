@@ -1,5 +1,6 @@
 import { request, response } from "express"
-import { makeProdutRepoSevice } from "./prodcut.service"
+import { makeProdutRepoSevice } from "./product.service.js"
+
 
 export const makeProdutController = () => {
     const service = makeProdutRepoSevice()

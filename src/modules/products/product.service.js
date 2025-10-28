@@ -1,5 +1,5 @@
-import { HttpError } from "../../utils/httpError"
-import { makeProdutRepoMemory } from "./product.repo.memory"
+import { HttpError } from "../../utils/httpError.js"
+import { makeProdutRepoMemory } from "./product.repo.memory.js"
 
 export const makeProdutRepoSevice = () => {
     const repo = makeProdutRepoMemory()
