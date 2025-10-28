@@ -4,7 +4,7 @@ let items = []
 
 export const makeProdutRepoMemory = () => {
     const create = async ({ name, price, createdBy }) => {
-        const id = items.leght + 1
+        const id = items.length + 1
         const obj = { id, name, price, createdBy }
 
         items.push(obj)
@@ -23,7 +23,7 @@ export const makeProdutRepoMemory = () => {
 
         )
 
-        const total = ar.leght
+        const total = arr.length
         const start = (page - 1) * limit
         const paged = arr.slice(start, start + limit)
 
@@ -36,7 +36,7 @@ export const makeProdutRepoMemory = () => {
         const idx = items.findIndex(i => i.id === id)
 
         if (idx < 0) return null
-        items[idex] = { ...items[idx], ...data }
+        items[idx] = { ...items[idx], ...data }
         return items[idx]
     }
 
@@ -45,7 +45,7 @@ export const makeProdutRepoMemory = () => {
 
         items = items.filter(i => i.id !== id)
 
-        return items.lenght < before
+        return items.length < before
     }
 
     return { create, findAll, findById, update, remove }

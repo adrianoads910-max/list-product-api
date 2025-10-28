@@ -7,7 +7,7 @@ export const makeProdutRepoSevice = () => {
     const sortable = ["id", "name", "price"]
     const dirOk = ["ASC", "DESC"]
 
-    const create = async ({ name, price, userID }) => {
+    const create = async ({ name, price, userId }) => {
         if (!name || typeof price !== "number" || price < 0) {
             throw new HttpError(
                 "Invalid product payload",
@@ -15,7 +15,7 @@ export const makeProdutRepoSevice = () => {
                 "BAD_REQUEST"
             )
         }
-        return repo.create({ name, price, createdBy: userID })
+        return repo.create({ name, price, createdBy: userId })
     }
 
     const list = async ({ q, order = "id", dir = "ASC", page = 1, limit = 10 }) => {
@@ -54,7 +54,7 @@ export const makeProdutRepoSevice = () => {
         }
         return updated
     }
-    const remove = async ({ id }) => {
+    const remove = async ({ id, data }) => {
         const ok = await repo.remove({ id, data })
 
         if (!ok) {

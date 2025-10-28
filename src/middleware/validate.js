@@ -1,21 +1,18 @@
 export const validate = (schemas = {}) => (request, _response, next) => {
     try {
-        if (schemas.body) {
-            request.body = schemas.body.parse(request.body)
-        }
-        if (schemas.query) {
-            request.query = schemas.query.parse(request.query)
-        }
-        if (schemas.params) {
-            request.params = schemas.params.parse(request.params)
-        }
+        if (schemas.body) schemas.body.parse(request.body)
 
-        next()
+        if (schemas.query) schemas.query.parse(request.query)
+
+        if (schemas.params) schemas.params.parse(request.params)
+
+
+        return next()
     } catch (error) {
         const issues = error?.issues?.map(item => ({
             path: item.patch,
             message: item.message
-        }))
+        })) ?? null
 
         return next({
             message: "Validation error",
