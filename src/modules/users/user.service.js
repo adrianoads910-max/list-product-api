@@ -1,11 +1,11 @@
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import { HttpError } from "../../utils/httpError.js"
-import { makeUserRepoMemory } from "./user.repo.memory.js"
 import { env } from "../../config/env.js"
+import { makeUserRepoSequelize } from "./user.repo.sequelize.js"
 
 export const makeUserService = () => {
-    const repository = makeUserRepoMemory()
+    const repository = makeUserRepoSequelize() //makeUserRepoMemory
     const register = async ({ name, email, password }) => {
         const exist = await repository.findbyEmail({ email })
 

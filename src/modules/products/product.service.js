@@ -1,8 +1,8 @@
 import { HttpError } from "../../utils/httpError.js"
-import { makeProdutRepoMemory } from "./product.repo.memory.js"
+import { makeProdutRepoSequelize } from "./product.repo.sequelize.js"
 
 export const makeProdutRepoSevice = () => {
-    const repo = makeProdutRepoMemory()
+    const repo = makeProdutRepoSequelize()
 
     const sortable = ["id", "name", "price"]
     const dirOk = ["ASC", "DESC"]
