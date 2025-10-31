@@ -14,7 +14,7 @@ export const createApp = () => {
     app.use(express.json());
     app.use(helmet());
     app.use(cors({ origin: env.corsOrigin }))
-    app.use(rateLimit({ WindowMs: 60_000, max: 100 }))
+    app.use(rateLimit({ windowMs: 60_000, max: 100 }))
     app.get("/health", (_, response) => {
         response.json({ ok: true })
     })

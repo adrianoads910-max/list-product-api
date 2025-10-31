@@ -1,7 +1,5 @@
-import { DataTypes, STRING } from "sequelize";
+import { DataTypes } from "sequelize";
 import { sequelize } from "../config/database.js";
-import { email } from "zod";
-import { Product } from "./Product.js";
 
 export const User = sequelize.define("User", {
     id: {
@@ -43,7 +41,3 @@ export const User = sequelize.define("User", {
     underscored: true
 })
 
-User.hasMany(Product, {
-    foreignKey: "userId",
-    as: "products"
-})

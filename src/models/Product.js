@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../config/database.js";
-import { User } from "./User.js";
+
 
 export const Product = sequelize.define("Product", {
     id: {
@@ -35,9 +35,4 @@ export const Product = sequelize.define("Product", {
     timestamps: true,
     underscored: true,
     paranoid: true
-})
-Product.belongsTo(User, {
-    foreignKey: "userId",
-    as: "createdBy",
-    onDelete: "CASCADE"
 })
