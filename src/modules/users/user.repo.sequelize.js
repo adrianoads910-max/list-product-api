@@ -1,4 +1,4 @@
-import { User } from "../../models"
+import { User } from "../../models/User.js"
 
 export const makeUserRepoSequelize = () => {
     const create = async ({ name, email, passwordHash }) => {

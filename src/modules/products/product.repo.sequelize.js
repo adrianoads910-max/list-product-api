@@ -1,5 +1,6 @@
 import { Op } from "sequelize"
-import { Product, User } from "../../models"
+import { Product } from "../../models/Product.js"
+import { User } from "../../models/User.js"
 
 export const makeProdutRepoSequelize = () => {
     const create = async ({ name, price, createdBy }) => {
