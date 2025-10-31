@@ -7,7 +7,7 @@ import { makeUserRepoSequelize } from "./user.repo.sequelize.js"
 export const makeUserService = () => {
     const repository = makeUserRepoSequelize() //makeUserRepoMemory
     const register = async ({ name, email, password }) => {
-        const exist = await repository.findbyEmail({ email })
+        const exist = await repository.findByEmail({ email })
 
         if (exist) {
             throw new HttpError(
@@ -22,7 +22,7 @@ export const makeUserService = () => {
 
     }
     const login = async ({ email, password }) => {
-        const user = await repository.findbyEmail({ email })
+        const user = await repository.findByEmail({ email })
 
         if (!user) {
             throw new HttpError(

@@ -15,6 +15,7 @@ export const makeProdutRepoSevice = () => {
                 "BAD_REQUEST"
             )
         }
+
         return repo.create({ name, price, createdBy: userId })
     }
 
@@ -24,7 +25,7 @@ export const makeProdutRepoSevice = () => {
         }
 
         if (!dirOk.includes(String(dir).toLowerCase())) {
-            dir = "ASC  "
+            dir = "ASC"
         }
 
         return repo.findAll({ q, order, dir, page: Number(page), limit: Number(limit) })
